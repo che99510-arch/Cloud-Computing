@@ -12,7 +12,7 @@ export default function Home() {
     fetch(apiUrl('/health'))
       .then((r) => r.json())
       .then(setHealth)
-      .catch(() => setHealth({ status: 'healthy', platform: 'Google App Engine' }));
+      .catch(() => setHealth({ status: 'healthy', platform: 'Render PaaS' }));
     return () => clearInterval(timer);
   }, []);
 
@@ -27,7 +27,7 @@ export default function Home() {
           </h1>
           <p className="text-base sm:text-lg text-slate-300 mb-8 max-w-2xl mx-auto">
             This application demonstrates cloud deployment using{' '}
-            <span className="text-accent font-semibold">Google App Engine</span> and{' '}
+            <span className="text-accent font-semibold">Render PaaS</span> and{' '}
             <span className="text-accent font-semibold">OpenFaaS</span>. Built by a team of 20 students.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
@@ -61,7 +61,7 @@ export default function Home() {
         <div className="bg-white rounded-2xl shadow-md border border-slate-100 p-5 sm:p-6">
           <div className="text-3xl mb-3">🚀</div>
           <h3 className="font-bold text-secondary text-lg mb-1">Platform</h3>
-          <p className="text-slate-700 font-medium">{health?.platform || 'Google App Engine'}</p>
+          <p className="text-slate-700 font-medium">{health?.platform || 'Render PaaS'}</p>
           <div className="mt-2">
             <StatusBadge status={health?.status || 'healthy'} />
           </div>

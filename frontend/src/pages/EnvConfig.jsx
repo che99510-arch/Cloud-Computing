@@ -11,7 +11,7 @@ export default function EnvConfig() {
   const safeEnv = config?.environment || {
     NODE_ENV: 'production',
     APP_NAME: 'Cloud Project',
-    PLATFORM: 'Google App Engine',
+    PLATFORM: 'Render PaaS',
   };
 
   return (

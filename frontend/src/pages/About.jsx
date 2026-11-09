@@ -4,7 +4,7 @@ export default function About() {
       icon: '🎯',
       title: 'Purpose of the Project',
       content:
-        'This project demonstrates modern cloud deployment techniques by deploying a full-stack web application to two distinct cloud platforms: Google App Engine (PaaS) and OpenFaaS (FaaS). It serves as a hands-on exploration of cloud-native architecture for university students.',
+        'This project demonstrates modern cloud deployment techniques by deploying a full-stack web application to two distinct cloud platforms: Render (Platform as a Service) and OpenFaaS (Function as a Service). It serves as a hands-on exploration of cloud-native architecture for university students.',
     },
     {
       icon: '☁️',
@@ -16,13 +16,13 @@ export default function About() {
       icon: '⚖️',
       title: 'PaaS vs FaaS',
       content:
-        'Platform as a Service (PaaS) provides a managed environment to deploy full applications (e.g., Google App Engine). Function as a Service (FaaS) runs individual functions in response to events, with no server management — ideal for event-driven, stateless workloads (e.g., OpenFaaS).',
+        'Platform as a Service (PaaS) provides a managed environment to deploy full applications (e.g., Render). Function as a Service (FaaS) runs individual functions in response to events, with no server management — ideal for event-driven, stateless workloads (e.g., OpenFaaS).',
     },
     {
       icon: '🌐',
-      title: 'Google App Engine',
+      title: 'Render — PaaS Platform',
       content:
-        "Google App Engine is a fully managed PaaS offering from Google Cloud. It supports Python, Node.js, Java, Go, and more. Developers push code and App Engine handles scaling, load balancing, patching, and infrastructure. This project uses the python312 runtime with Django and Gunicorn.",
+        'Render is a fully managed cloud platform that supports Python, Node.js, Docker and static sites. Developers connect their GitHub repository and Render automatically builds, deploys and serves the application. This project uses Render to host the Django REST API backend and the React frontend static site.',
     },
     {
       icon: '⚡',

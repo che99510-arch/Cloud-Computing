@@ -46,12 +46,12 @@ export default function Deployment() {
 
       {/* Platform cards */}
       <div className="grid gap-6 sm:grid-cols-2 mb-8">
-        {/* Google App Engine */}
+        {/* Render PaaS */}
         <div className="bg-white rounded-2xl shadow-md border border-slate-100 p-5 sm:p-6">
           <div className="flex items-center gap-3 mb-4">
             <span className="text-3xl">🌐</span>
             <div>
-              <h2 className="font-bold text-secondary text-lg">Google App Engine</h2>
+              <h2 className="font-bold text-secondary text-lg">Render</h2>
               <p className="text-slate-400 text-xs">Platform as a Service (PaaS)</p>
             </div>
           </div>
@@ -59,8 +59,8 @@ export default function Deployment() {
           <InfoRow label="Framework" value="Django 5 + Gunicorn" />
           <InfoRow label="Deployment Status" value={<StatusBadge status={health?.status || 'healthy'} />} />
           <InfoRow label="Last Deployment" value={deployDate} />
-          <InfoRow label="Scaling" value="Auto (1–5 instances)" />
-          <InfoRow label="Region" value="us-central1" />
+          <InfoRow label="Scaling" value="Auto scaling" />
+          <InfoRow label="URL" value="onrender.com" />
         </div>
 
         {/* OpenFaaS */}
@@ -114,16 +114,16 @@ export default function Deployment() {
       {/* Deployment commands */}
       <div className="mt-8 grid gap-6 sm:grid-cols-2">
         <div className="bg-secondary rounded-2xl p-5 sm:p-6 text-white">
-          <h3 className="font-bold text-lg mb-4 flex items-center gap-2"><span>🌐</span> Google App Engine</h3>
+          <h3 className="font-bold text-lg mb-4 flex items-center gap-2"><span>🌐</span> Render PaaS</h3>
           <pre className="bg-black/30 rounded-lg p-4 text-xs sm:text-sm font-mono text-green-300 overflow-x-auto whitespace-pre">
-{`# Deploy (python312 runtime)
-gcloud app deploy
+{`# Push to GitHub triggers auto-deploy
+git push origin main
 
-# Open in browser
-gcloud app browse
+# View logs on Render dashboard
+# https://dashboard.render.com
 
-# Stream logs
-gcloud app logs tail -s default`}
+# Manual deploy via Render CLI
+render deploy`}
           </pre>
         </div>
         <div className="bg-secondary rounded-2xl p-5 sm:p-6 text-white">
