@@ -1,0 +1,13 @@
+{
+  "name": "cloud-function",
+  "version": "1.0.0",
+  "description": "OpenFaaS function for Cloud Computing Assignment",
+  "main": "handler.js",
+  "scripts": {
+    "start": "node handler.js",
+    "test": "echo \"No tests defined\" && exit 0"
+  },
+  "dependencies": {
+    "express": "4.18.2"
+  }
+}

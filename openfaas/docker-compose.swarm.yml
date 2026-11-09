@@ -1,0 +1,49 @@
+version: "3.8"
+
+services:
+  gateway:
+    image: ghcr.io/openfaas/gateway:0.27.5
+    ports:
+      - "8080:8080"
+    networks:
+      - openfaas
+    environment:
+      - functions_provider_url=http://faas-swarm:8080/
+      - read_timeout=60s
+      - write_timeout=60s
+      - upstream_timeout=65s
+      - basic_auth=true
+      - secret_mount_path=/run/secrets/
+    secrets:
+      - basic-auth-user
+      - basic-auth-password
+    deploy:
+      restart_policy:
+        condition: on-failure
+
+  faas-swarm:
+    image: ghcr.io/openfaas/faas-swarm:0.9.8
+    networks:
+      - openfaas
+    environment:
+      - read_timeout=60s
+      - write_timeout=60s
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    deploy:
+      placement:
+        constraints:
+          - node.role == manager
+      restart_policy:
+        condition: on-failure
+
+networks:
+  openfaas:
+    driver: overlay
+    attachable: true
+
+secrets:
+  basic-auth-user:
+    external: true
+  basic-auth-password:
+    external: true

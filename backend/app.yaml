@@ -1,0 +1,19 @@
+runtime: python312
+
+entrypoint: gunicorn -b :$PORT config.wsgi
+
+env_variables:
+  DJANGO_SETTINGS_MODULE: "config.settings"
+  APP_NAME: "Cloud Project"
+  PLATFORM: "Google App Engine"
+  DEBUG: "False"
+  ALLOWED_HOSTS: ".appspot.com,localhost"
+
+automatic_scaling:
+  min_instances: 1
+  max_instances: 5
+
+handlers:
+  - url: /.*
+    script: auto
+    secure: always

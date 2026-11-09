@@ -1,0 +1,14 @@
+version: 1.0
+provider:
+  name: openfaas
+  gateway: http://127.0.0.1:8080
+
+functions:
+  cloud-function:
+    lang: node20
+    handler: ./cloud-function
+    image: chemike/cloud-function:latest
+    environment:
+      NODE_ENV: production
+      APP_NAME: Cloud Project
+      PLATFORM: OpenFaaS

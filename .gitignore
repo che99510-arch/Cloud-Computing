@@ -1,0 +1,36 @@
+# Environment variables — never commit secrets
+.env
+.env.local
+.env.production
+.env.development
+
+# Python
+backend/venv/
+backend/__pycache__/
+backend/**/__pycache__/
+backend/**/*.pyc
+backend/staticfiles/
+backend/db.sqlite3
+*.pyc
+*.pyo
+
+# Node / Frontend
+node_modules/
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Credentials — never commit these
+*.key
+*.pem
+service-account.json
+credentials.json
+gcloud-key.json

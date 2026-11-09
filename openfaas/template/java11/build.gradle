@@ -1,0 +1,17 @@
+allprojects {
+    repositories {
+        mavenCentral()
+    }
+}
+
+subprojects {
+    version = '1.0'
+}
+
+repositories {
+    mavenCentral()
+    
+    flatDir {
+        dirs 'libs'
+    }
+}
