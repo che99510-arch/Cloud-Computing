@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import StatusBadge from '../components/StatusBadge';
+import { apiUrl } from '../api';
 
 function InfoRow({ label, value }) {
   return (
@@ -30,8 +31,8 @@ export default function Deployment() {
   const [config, setConfig] = useState(null);
 
   useEffect(() => {
-    fetch('/api/health').then((r) => r.json()).then(setHealth).catch(() => null);
-    fetch('/api/config').then((r) => r.json()).then(setConfig).catch(() => null);
+    fetch(apiUrl('/health')).then((r) => r.json()).then(setHealth).catch(() => null);
+    fetch(apiUrl('/config')).then((r) => r.json()).then(setConfig).catch(() => null);
   }, []);
 
   const deployDate = new Date().toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' });

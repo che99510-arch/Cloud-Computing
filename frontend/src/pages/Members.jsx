@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { apiUrl } from '../api';
 
 const roleColors = {
   'Project Manager': 'bg-purple-100 text-purple-800',
@@ -38,7 +39,7 @@ export default function Members() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/api/members')
+    fetch(apiUrl('/members'))
       .then((r) => r.json())
       .then((data) => { setMembers(data.members); setLoading(false); })
       .catch(() => setLoading(false));

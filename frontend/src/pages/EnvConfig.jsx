@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
+import { apiUrl } from '../api';
 
 export default function EnvConfig() {
   const [config, setConfig] = useState(null);
 
   useEffect(() => {
-    fetch('/api/config').then((r) => r.json()).then(setConfig).catch(() => null);
+    fetch(apiUrl('/config')).then((r) => r.json()).then(setConfig).catch(() => null);
   }, []);
 
   const safeEnv = config?.environment || {

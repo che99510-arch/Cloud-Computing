@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import StatusBadge from '../components/StatusBadge';
+import { apiUrl } from '../api';
 
 export default function Home() {
   const [now, setNow] = useState(new Date());
@@ -8,7 +9,7 @@ export default function Home() {
 
   useEffect(() => {
     const timer = setInterval(() => setNow(new Date()), 1000);
-    fetch('/api/health')
+    fetch(apiUrl('/health'))
       .then((r) => r.json())
       .then(setHealth)
       .catch(() => setHealth({ status: 'healthy', platform: 'Google App Engine' }));

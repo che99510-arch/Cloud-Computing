@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { apiUrl } from '../api';
 
 const levelColors = {
   info: 'text-blue-400',
@@ -21,7 +22,7 @@ export default function Logs() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/api/logs')
+    fetch(apiUrl('/logs'))
       .then((r) => r.json())
       .then((data) => { if (data.logs?.length) setLogs(data.logs); setLoading(false); })
       .catch(() => setLoading(false));
